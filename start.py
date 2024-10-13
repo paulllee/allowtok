@@ -34,12 +34,14 @@ def open_url_in_new_window(cur_url: str) -> None:
     st.components.v1.html(js_block)
 
 
+st.set_page_config(page_title="allowtok")
 st.title("allowtok")
 st.write("opens a tiktok url without any restrictions in a mobile browser")
-st.write("*fyi: please disable pop up blockers so that we can redirect you*")
+st.write("*fyi: i suggest disabling your pop up blocker*")
 
 potential_url: str = st.text_input("paste tiktok url below 👇")
 if potential_url:
     url_to_use: Union[str, None] = get_removed_timestamp_url(potential_url)
     if url_to_use:
+        st.write(f"[if not redirected, click here]({url_to_use})")
         open_url_in_new_window(url_to_use)
