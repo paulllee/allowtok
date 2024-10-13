@@ -31,13 +31,21 @@ def open_url_in_new_window(cur_url: str) -> None:
         f"window.open('{cur_url}', '_blank').focus();"
         "</script>"
     )
+
+    # st.html is not iframed thus executing js is unsupported
     st.components.v1.html(js_block)
 
 
 st.set_page_config(page_title="allowtok")
 st.title("allowtok")
-st.write("opens a tiktok url without any restrictions in a mobile browser")
-st.write("*fyi: i suggest disabling your pop up blocker*")
+
+body: str = """
+open a tiktok url without any restrictions in a mobile browser
+([github](https://github.com/paulllee/allowtok))
+
+*fyi: disable your pop up blocker for our redirection*
+"""
+st.write(body)
 
 potential_url: str = st.text_input("paste tiktok url below 👇")
 if potential_url:
