@@ -1,0 +1,7 @@
+[project]
+name = "allowtok"
+version = "0.0.1"
+description = "watch tiktoks on your phone from the browser"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["requests", "streamlit"]
